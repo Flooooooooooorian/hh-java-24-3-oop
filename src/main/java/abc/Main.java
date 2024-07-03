@@ -1,5 +1,7 @@
 package abc;
 
+import house.kitchen.Tasse;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,7 +11,7 @@ public class Main {
         int size = 200;
         int content = 0;
 
-        System.out.println("Ursulas abc.Tasse:");
+        System.out.println("Ursulas house.kitchen.Tasse:");
         System.out.println("Farbe: " + color);
         System.out.println("Aufdruck: " + text);
         System.out.println("größe: " + size);
@@ -18,25 +20,33 @@ public class Main {
 
         Tasse henriquesTasse = new Tasse();
 
-        henriquesTasse.color = "dunkel blau";
-        henriquesTasse.content = 50;
-        henriquesTasse.size = 450;
-        henriquesTasse.text = "";
+        henriquesTasse.setColor("dunkel blau");
+        henriquesTasse.setContent(50);
+        henriquesTasse.setSize(450);
+        henriquesTasse.setText(new String[]{"Text"});
 
-        System.out.println(henriquesTasse.color);
+        System.out.println(henriquesTasse.getColor());
 
         Tasse olgasTasse = new Tasse();
-        olgasTasse.color = "weiß";
+        olgasTasse.setColor("weiß");
 
-        System.out.println(olgasTasse.color);
-        System.out.println(henriquesTasse.color);
+        System.out.println(olgasTasse.getColor());
+        System.out.println(henriquesTasse.getColor());
 
         Tasse meineTasse = new Tasse("schwarz");
-        Tasse deineTasse = new Tasse();
+        Tasse deineTasse = new Tasse("schwarz");
 
-        System.out.println(meineTasse.color);
-        System.out.println(deineTasse.color);
-        System.out.println(deineTasse.text);
-        System.out.println(deineTasse.size);
+        meineTasse.setText(new String[]{"Text"});
+
+        System.out.println(meineTasse.getColor());
+        System.out.println(deineTasse.getColor());
+        System.out.println(deineTasse.getText());
+        System.out.println(deineTasse.getContent());
+
+        System.out.println(meineTasse);
+        System.out.println(deineTasse);
+
+        System.out.println("Hallo".equals("Tschüs"));
+        System.out.println(meineTasse.equals(deineTasse));
     }
 }
