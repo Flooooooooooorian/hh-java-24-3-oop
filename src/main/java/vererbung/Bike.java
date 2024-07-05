@@ -2,24 +2,27 @@ package vererbung;
 
 import java.util.Objects;
 
-public class Bike extends Vehicle {
+public class Bike {
 
     private int numberOfWheels;
     private int price;
     private int sattleHöhe;
     private int rahmenGröße;
 
+    private Vehicle vehicle;
+
     public Bike() {
-        super();
+
     }
 
     public Bike(String brand, String model, String color, String type, int numberOfWheels, int price, int sattleHöhe, int rahmenGröße) {
-        super(brand, model, color, type);
 
         this.numberOfWheels = numberOfWheels;
         this.price = price;
         this.sattleHöhe = sattleHöhe;
         this.rahmenGröße = rahmenGröße;
+
+        this.vehicle = new Vehicle(brand, model, color, type);
     }
 
     public void drive() {
@@ -58,18 +61,25 @@ public class Bike extends Vehicle {
         this.rahmenGröße = rahmenGröße;
     }
 
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Bike bike = (Bike) o;
-        return numberOfWheels == bike.numberOfWheels && price == bike.price && sattleHöhe == bike.sattleHöhe && rahmenGröße == bike.rahmenGröße;
+        return numberOfWheels == bike.numberOfWheels && price == bike.price && sattleHöhe == bike.sattleHöhe && rahmenGröße == bike.rahmenGröße && Objects.equals(vehicle, bike.vehicle);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), numberOfWheels, price, sattleHöhe, rahmenGröße);
+        return Objects.hash(numberOfWheels, price, sattleHöhe, rahmenGröße, vehicle);
     }
 
     @Override
@@ -79,10 +89,7 @@ public class Bike extends Vehicle {
                ", price=" + price +
                ", sattleHöhe=" + sattleHöhe +
                ", rahmenGröße=" + rahmenGröße +
-               ", brand='" + brand + '\'' +
-               ", model='" + model + '\'' +
-               ", color='" + color + '\'' +
-               ", type='" + type + '\'' +
+               ", vehicle=" + vehicle +
                '}';
     }
 }

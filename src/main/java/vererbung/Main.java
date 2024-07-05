@@ -11,5 +11,9 @@ public class Main {
 
 
 
+        Bike b1 = new Bike("brand", "model", "color", "type", 4, 6, 120, 60);
+
+        System.out.println(b1);
+
     }
 }
