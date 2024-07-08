@@ -1,7 +1,5 @@
 package animals;
 
-import vererbung.Car;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -22,7 +20,6 @@ public class Main {
         d2.hello();
 
         animal(new Cat());
-
     }
 
     public static void animal(Animal a) {
