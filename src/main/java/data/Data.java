@@ -1,9 +1,11 @@
 package data;
 
+
+import animals.Animal;
+import animals.Cat;
 import animals.Dog;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Data {
 
@@ -33,5 +35,35 @@ public class Data {
         System.out.println(list);
 
         System.out.println(list.size());
+
+
+        Map<String, Animal> map = new HashMap<>();
+
+        Animal a1 = new Cat();
+
+        map.put("KeyAnimalA", a1);
+        map.put("KeyAnimalB", a1);
+        map.put("KeyAnimalA", new Dog());
+
+        map.put("Animal2", new Dog());
+        map.put("123", new Cat());
+
+        System.out.println(map);
+
+        System.out.println(map.get("KeyAnimalB"));
+
+
+        Set<String> set = new HashSet<>();
+
+        set.add("Hallo");
+        set.add(" ");
+        set.add("World");
+        set.add("!");
+        set.add("!");
+        set.add("!");
+        set.add("!");
+        set.add("!");
+
+        System.out.println(set);
     }
 }
